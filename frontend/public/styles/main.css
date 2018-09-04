@@ -1,0 +1,275 @@
+/* //////////////////////
+//////// IMPORTS ////////
+///////////////////////*/
+/* Imports, such as Google Fonts, go here. */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600i,700');
+/* end imports */
+
+
+
+/* //////////////////////
+///// PAGE DEFAULTS /////
+///////////////////////*/
+
+html * {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 18px;
+}
+
+body {
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  /* size of the image will never exceed the size of the container holding it */
+}
+
+h1 {
+  font-size: 1.7rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-weight: bold;
+}
+
+.index-container {
+  width: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "header header header"
+  "comic-page comic-page comic-page"
+  "left center right"
+  "footer footer footer";
+  justify-content: center;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  /* Learn about CSS grid here:
+     https://css-tricks.com/snippets/css/complete-guide-grid/ */
+}
+
+.index-container > * {
+  background-color: #e5eff7;
+  padding: 10px;
+}
+
+/* end page defaults */
+
+
+
+/* /////////////////////
+//////// HEADER ////////
+//////////////////////*/
+
+header {
+  grid-area: header;
+}
+
+.header-menu {
+  display: inline-flex;
+  align-items: center;
+}
+.header-menu a {
+  margin: 0 15px;
+}
+
+/* end header */
+
+
+
+/* /////////////////////
+////// COMIC PAGE //////
+//////////////////////*/
+
+.comic-stage {
+  text-align: center;
+  grid-area: comic-page;
+  max-width: 980px;
+  min-width: 100%;
+}
+
+.page-wrapper {
+  display: inline-block;
+  width: auto;
+}
+
+#fixed-comic-nav {
+  height: 40px;
+  width: auto;
+  background-color:aliceblue;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  z-index: 100;
+}
+
+.fc-nav-wrapper {
+  width: 100;
+  max-width: 980px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.comic-stage .comic-img {
+  padding: 10px 0;
+}
+
+.comic-stage .comic-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky-nav + .index-content {
+  padding-top: 60px;
+}
+
+.alert {
+
+}
+
+.transcripts {
+
+}
+
+/* end comic page */
+
+
+
+/* /////////////////////
+//// CENTER CONTENT ////
+//////////////////////*/
+
+.center-content {
+  grid-area: center;
+  background-color: #fff;
+  padding: 0;
+}
+
+.author-text {
+  text-align: left;
+  background-color: #e5eff7;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comments {
+  background-color: #e5eff7;
+  padding: 10px;
+}
+
+/* end center content */
+
+
+
+/* /////////////////////
+///// LEFT CONTENT /////
+//////////////////////*/
+
+.left-content {
+  grid-area: left;
+}
+
+/* end left content */
+
+
+/* /////////////////////
+///// RIGHT CONTENT ////
+//////////////////////*/
+
+.right-content {
+  grid-area: right;
+}
+
+/* end right content */
+
+
+
+/* /////////////////////
+//////// FOOTER ////////
+//////////////////////*/
+
+footer {
+  grid-area: footer;
+  font-size: .8rem;
+}
+
+/* end footer */
+
+
+
+/* /////////////////////
+///// MISCELLANEOUS ////
+//////////////////////*/
+
+.aux-container {}
+
+.social-links {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+  .social-links a {
+    margin: 6px;
+  }
+
+/* end misc */
+
+
+
+/* /////////////////////
+//////// MOBILE ////////
+//////////////////////*/
+
+@media screen and (max-width: 600px) {
+  /* all mobile styles must be wrapped in the media query above! */
+
+  .index-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "header"
+    "comic-page"
+    "center"
+    "left"
+    "right"
+    "footer";
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+  }
+  .comic-page {
+    padding: 5px 0;
+  }
+  /* TODO: fix the header menu for mobile */
+  /* TODO: toggle-able, bottom-fixed mobile nav next/prev */
+}
